@@ -6,6 +6,6 @@ export const LOGIN = {
 
     password : {
         required : 'Password is required',
-        minLength : 'Passoword must be 8 characters long'
+        minlength : 'Passoword must be 8 characters long'
     }
 };
