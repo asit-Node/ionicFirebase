@@ -39,9 +39,9 @@ export class LoginPage implements OnInit {
   }
 
   onFormValueChanged(data) {
-    console.log('data', data);
-    console.log('form', this.loginForm);
+    //console.log('data', data);
+   // console.log('form', this.loginForm);
     this.formError = this.helperService.prepareValidationMessage(this.loginForm, this.validationMessage, this.formError);
-  console.log(this.formError);
+ // console.log(this.formError);
   }
 }
