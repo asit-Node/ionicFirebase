@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LOGIN } from '../constants/formValidationMessage';
 import { HelperService } from '../providers/helper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { HelperService } from '../providers/helper.service';
 })
 export class LoginPage implements OnInit {
 
-  loginForm : FormGroup;
+  loginForm: FormGroup;
   email: FormControl;
   password: FormControl;
   formError: any = {
@@ -18,7 +19,7 @@ export class LoginPage implements OnInit {
     password: ''
   };
   validationMessage: any = LOGIN;
-  constructor(private helperService: HelperService) { }
+  constructor(private helperService: HelperService, private router: Router) { }
 
   ngOnInit() {
     this.createFormControl();
@@ -39,9 +40,13 @@ export class LoginPage implements OnInit {
   }
 
   onFormValueChanged(data) {
-    //console.log('data', data);
+   // console.log('data', data);
    // console.log('form', this.loginForm);
     this.formError = this.helperService.prepareValidationMessage(this.loginForm, this.validationMessage, this.formError);
  // console.log(this.formError);
+  }
+
+  goToSignupPage() {
+    this.router.navigate(['/signup']);
   }
 }
